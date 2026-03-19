@@ -2,6 +2,7 @@ import express from 'express';
 import productsRouter from './src/routers/products.js';
 import faqsRouter from './src/routers/faqs.js';
 import branchesRouter from './src/routers/branches.js';
+import employeesRouter from './src/routers/employees.js';
 
 const app = express();
 
@@ -12,5 +13,6 @@ app.use(express.json());
 app.use("/api/products", productsRouter);
 app.use("/api/faqs", faqsRouter);
 app.use("/api/branches", branchesRouter);
+app.use("/api/employee", employeesRouter);
 
 export default app;
