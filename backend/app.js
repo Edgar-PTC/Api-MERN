@@ -5,6 +5,8 @@ import branchesRouter from './src/routers/branches.js';
 import employeesRouter from './src/routers/employees.js';
 import reviewsRouter from './src/routers/reviews.js'
 import brandsRouter from './src/routers/brands.js'
+import adminsRouter from './src/routers/admins.js'
+import clientsRouter from './src/routers/clients.js'
 
 const app = express();
 
@@ -18,5 +20,7 @@ app.use("/api/branches", branchesRouter);
 app.use("/api/employee", employeesRouter);
 app.use("/api/review", reviewsRouter);
 app.use("/api/brands", brandsRouter);
+app.use("/api/admins", adminsRouter);
+app.use("/api/clients", clientsRouter);
 
 export default app;

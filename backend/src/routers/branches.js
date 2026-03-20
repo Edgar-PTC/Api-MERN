@@ -11,4 +11,4 @@ router.route("/:id")
 .delete(branchesController.deleteBranches)
 .put(branchesController.updateBranches);
 
-export default router;
+export default router;  
