@@ -22,5 +22,6 @@ app.use("/api/review", reviewsRouter);
 app.use("/api/brands", brandsRouter);
 app.use("/api/admins", adminsRouter);
 app.use("/api/clients", clientsRouter);
+app.use("/api/registerClients", );
 
 export default app;

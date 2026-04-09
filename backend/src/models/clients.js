@@ -1,5 +1,6 @@
 /*
     name
+    lastname
     email
     password
     birthday
@@ -13,6 +14,9 @@ import { Schema, model } from "mongoose";
 
 const clientSchema = new Schema({
     name: {
+        type: String
+    },
+    lastname: {
         type: String
     },
     email: {

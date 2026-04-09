@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.route("/")
 .get(clientsController.getClients)
-.post(clientsController.insertClients);
 
 router.route("/:id")
 .delete(clientsController.deleteClients)
