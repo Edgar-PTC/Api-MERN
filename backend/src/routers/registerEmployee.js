@@ -1,10 +1,10 @@
 import express from 'express';
-import Register from '../controllers/registerClientController.js ';
+import Register from '../controllers/registerEmployeeController.js';
 
 const router = express.Router();
 
 router.route("/")
-.post(Register.insertClients)
+.post(Register.insertEmployees)
 
 router.route("/verifyCode")
 .post(Register.verifyCode)

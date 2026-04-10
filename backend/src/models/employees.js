@@ -11,6 +11,7 @@ import Branches from "../models/branches.js"
     email
     password
     branchId
+    isVerified
 */
 
 const employeeSchema = new Schema({
@@ -38,6 +39,9 @@ const employeeSchema = new Schema({
     branchId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: Branches
+    },
+    isVerified: {
+        type: Boolean
     }
 },{
     timestamps: true,
