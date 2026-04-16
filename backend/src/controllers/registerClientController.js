@@ -79,12 +79,33 @@ registerClient.insertClients = async (req, res) => {
             }
         })
 
+        //#1.5 probando enviar HTML
+        const HTMLEmail = `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #074a25;">
+            <div style="max-width: 600px; margin: 0 auto; background-color: white; border-radius: 10px; padding: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <h1 style="color: #333; text-align: center;">Paso final!</h1>
+                <p style="color: #666; line-height: 1.6;">Hola <strong>${email}</strong>,</p>
+                <p style="color: #666; line-height: 1.6;">Este es el paso final de tu proceso de registro, porfavor pon el siguiente codigo en la pagina de verificacion</p>
+                <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; display: flex; flex-direction: row; align-items: center; justify-content: center;">
+                    <p style="margin: 0; color: #333; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 40px;">${verificationCode}</p>
+                </div>
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
+                <p style="color: #999; font-size: 12px; text-align: center;">Este es un correo automático, por favor no responder.</p>
+            </div>
+        </body>
+        </html>`
+ 
         //#2. Que se envia?
         const mailOptions = {
             from: config.email.user_email,
             to: email,
-            subject: "Ejemplo",
-            text: "Tu codigo bro " + verificationCode + "Se vence pronto"
+            subject: `Paso final! Codigo de verificacion: ${verificationCode}`,
+            html: HTMLEmail
         }
 
         //#3. Enviar
