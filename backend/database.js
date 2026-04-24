@@ -3,8 +3,6 @@ import { config } from "./src/config.js";
 
 mongoose.connect(config.db.URI); 
 
-//Comprobar que todo funciona
-
 const conecction = mongoose.connection;
 
 conecction.once("open", () => {

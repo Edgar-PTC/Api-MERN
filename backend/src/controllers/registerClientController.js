@@ -42,7 +42,7 @@ registerClient.insertClients = async (req, res) => {
             return res.status(400).json({message: "email already in use"})
         }
 
-        //Validacion de email ReGex
+        //Validacion de email ReGx
 
         if(password.lenght < 5){
             return res.status(400).json({message: "The password must be at least 5 characters long."})

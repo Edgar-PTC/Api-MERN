@@ -11,10 +11,15 @@ import registerClients from "./src/routers/registerClients.js"
 import registerEmployees from "./src/routers/registerEmployee.js"
 import loginClient from "./src/routers/loginClients.js"
 import logOut from "./src/routers/logOut.js"
+import recoveryPassword from './src/routers/recoveryPassword.js';
 import cookieParser from 'cookie-parser';
+import cors from "cors"
 
 const app = express();
-
+app.use(cors({
+    origin: ["http://localhost:5173", "http://localhost:5174"],
+    credentials: true
+}))
 app.use(cookieParser());
 
 //que acepte json desde postman
@@ -32,6 +37,7 @@ app.use("/api/clients", clientsRouter);
 app.use("/api/registerClients", registerClients);
 app.use("/api/registerEmployees", registerEmployees);
 app.use("/api/loginClient", loginClient)
-app.use("/api/logout", logOut)
+app.use("/api/logout", logOut);
+app.use("/api/recoveryPassword", recoveryPassword)
 
 export default app;
