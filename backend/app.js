@@ -12,10 +12,17 @@ import registerEmployees from "./src/routers/registerEmployee.js"
 import loginClient from "./src/routers/loginClients.js"
 import logOut from "./src/routers/logOut.js"
 import recoveryPassword from './src/routers/recoveryPassword.js';
+import providersRouter from './src/routers/providers.js';
+import wompiRouter from './src/routers/wompi.js'
+import cartRouter from './src/routers/cart.js';
 import cookieParser from 'cookie-parser';
 import cors from "cors"
+import limiter from './src/middlewares/rateLimiter.js';
 
 const app = express();
+
+app.use(limiter);
+
 app.use(cors({
     origin: ["http://localhost:5173", "http://localhost:5174"],
     credentials: true
@@ -39,5 +46,8 @@ app.use("/api/registerEmployees", registerEmployees);
 app.use("/api/loginClient", loginClient)
 app.use("/api/logout", logOut);
 app.use("/api/recoveryPassword", recoveryPassword)
+app.use("/api/providers", providersRouter)
+app.use("/api/carts", cartRouter);
+app.use("/api/wompi", wompiRouter);
 
 export default app;
