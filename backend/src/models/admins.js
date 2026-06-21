@@ -19,6 +19,12 @@ const branchSchema = new Schema({
     },
     isVerified: {
         type: Boolean
+    },
+    loginAttemps: {
+        type: Number
+    },
+    timeOut: {
+        type: Date
     }
 },{
     timestamps: true,

@@ -40,6 +40,7 @@ cartController.insertCart = async (req, res) => {
         let total = 0;
         let newProducts = [];
 
+
         for( let s = 0; s < products.length; s++ ) {
             //Buscamos el producto en la BD
             const product = await ProductModel.findById(products[s].productId);
